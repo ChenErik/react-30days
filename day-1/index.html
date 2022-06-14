@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>30DaysOfScript:Inline Script</title>
+  </head>
+  <body>
+    <button onclick="alert('Welcome to 30DaysOfJavaScript123!')">Click Me</button>
+<script>
+    console.log('wa123123')
+
+    ;(function (n) {
+  console.log(n * n)
+    })(2)
+    const callback = (n) => {
+      return n ** 2
+    }
+    const cube = (cb, n) => {
+      return cb(n) * n
+    }
+    console.log('cube(callback,3): ', cube(callback, 3))
+    const higherOrder = (n) => {
+      const doSomething = (m) => {
+        const doWhatEver = (t) => {
+          return 2 * n + 3 * m + t
+        }
+        return doWhatEver
+      }
+      return doSomething
+    }
+    console.log(higherOrder(2)(3)(10))
+</script>
+  </body>
+</html>
