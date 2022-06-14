@@ -28,6 +28,7 @@
     }
 }
 .test-two{
+    position: relative;
     &-colors{
         display: flex;
         flex-wrap: wrap;
@@ -43,4 +44,81 @@
             color: #fff;
         }
     }
+}
+.love{
+    position: absolute;
+    transform: rotate(45deg);
+    left: 200px;
+    &-left{
+        position: absolute;
+        top: 0;
+        left: 100px;
+        height: 0px;
+        width: 0px;
+        border: 100px solid red;
+        border-radius: 100px;
+    }
+    &-right{
+        position: absolute;
+        top: 100px;
+        left: 0;
+        height: 0px;
+        width: 0px;
+        border: 100px solid red;
+        border-radius: 100px;
+    }
+    &-bottom{
+        position: absolute;
+        top: 100px;
+        left: 100px;
+        height: 0px;
+        width: 0px;
+        border: 100px solid red;
+        &-text{
+            transform: rotate(-45deg);
+        }
+    }
+}
+.test-three{
+    button{
+        display: block;
+        width: 100px;
+        background-color: cornflowerblue;
+        height: 40px;
+        margin: 0 auto;
+    }
+}
+.tab{
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid #e4e7ed;
+    &-item{
+        padding: 0 20px;
+        height: 40px;
+        box-sizing: border-box;
+        line-height: 40px;
+        display: inline-block;
+        list-style: none;
+        font-size: 14px;
+        font-weight: 500;
+        color: #303133;
+        position: relative;
+        border-right:1px solid #e4e7ed;
+        margin-bottom: -1px;
+        cursor: pointer;
+        user-select: none;
+    }
+    .active{
+        color: #409eff;
+        border-bottom: 1px solid #fff;
+    }
+}
+.test-four{
+    font-weight: bold;
+    font-size: 22px;
+    width: 200px;
+    height: 60px;
+    background-color: lightblue;
+    line-height: 60px;
+    position: absolute;
 }

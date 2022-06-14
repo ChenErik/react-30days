@@ -1,3 +1,4 @@
+// import type { FC } from 'react'
 import { hexaColor } from '../utils'
 function isPrinme(num: number) {
   if (num < 2)
@@ -24,24 +25,40 @@ function getColorByNum(num: number): string {
     return '#FFD700'
   return '#FFD700'
 }
+// const Love = ({ text }: { text: string }) => {
+//   return (
+//     <div className="love">
+//         <div className="love-left">
+//         </div>
+//         <div className="love-right">
+//         </div>
+//         <div className="love-bottom">
+//             <div className="love-bottom-text">
+//                 {text}
+//             </div>
+//         </div>
+//     </div>
+//   )
+// }
 const Testtwo = ({ num }: { num: number }) => {
   return (
-        <div className="test-two">
-            <div className="test-two-colors">
-                {
-                    Array.from({ length: num }).map((_el, index) => {
-                      return <div className="test-two-colors-box" key={index} style={{ backgroundColor: getColorByNum(index) }}>{index}</div>
-                    })
-                }
-            </div>
-            <div className="test-two-colors">
-                {
-                    Array.from({ length: num }).map((_el, index) => {
-                      return <div className="test-two-colors-box" key={index} style={{ backgroundColor: hexaColor() }}>{hexaColor()}</div>
-                    })
-                }
-            </div>
+    <div className="test-two">
+        {/* {Love({ text: 'Love' })} */}
+        <div className="test-two-colors">
+            {
+                Array.from({ length: num }).map((_el, index) => {
+                  return <div className="test-two-colors-box" key={index} style={{ backgroundColor: getColorByNum(index) }}>{index}</div>
+                })
+            }
         </div>
+        <div className="test-two-colors">
+            {
+                Array.from({ length: num }).map((_el, index) => {
+                  return <div className="test-two-colors-box" key={index} style={{ backgroundColor: hexaColor() }}>{hexaColor()}</div>
+                })
+            }
+        </div>
+    </div>
   )
 }
 export default Testtwo
