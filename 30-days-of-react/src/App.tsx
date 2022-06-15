@@ -13,7 +13,15 @@ interface ResponseData<T> {
   data: T
 }
 function App() {
-  const [tabList, setTabList] = useState<TabItem[]>([])
+  const data:TabItem[] = [
+    {label:'day 1',value:1},
+    {label:'day 2',value:2},
+    {label:'day 3',value:3},
+    {label:'day 4',value:4},
+    {label:'day 5',value:5},
+    {label:'day 6',value:6},
+  ]
+  const [tabList, setTabList] = useState<TabItem[]>(data)
   const skillList: string[] = ['HTML', 'CSS', 'JavaScript']
   function update({ id }: { id: number }): void {
     alert(id)
@@ -31,17 +39,17 @@ function App() {
     componentsMap.set(5, <TestFive />)
     return componentsMap.get(value) ?? <h1>没有对应的组件</h1>
   }
-  const getData = async <T extends {}>(url: string): Promise<T> => {
-    const response = await fetch(url)
-    const data: T = await response.json()
-    return data
-  }
-  useEffect(() => {
-    (async function load() {
-      const data = await getData<ResponseData<TabItem[]>>('http://mock.apifox.cn/m1/641537-0-default/test')
-      setTabList(data.data)
-    })()
-  }, [])
+  // const getData = async <T extends {}>(url: string): Promise<T> => {
+  //   const response = await fetch(url)
+  //   const data: T = await response.json()
+  //   return data
+  // }
+  // useEffect(() => {
+  //   (async function load() {
+  //     const data = await getData<ResponseData<TabItem[]>>('http://mock.apifox.cn/m1/641537-0-default/test')
+  //     setTabList(data.data)
+  //   })()
+  // }, [])
   return (
     <div className="App">
       <Tab tabList={tabList} onClick={tabClick} active={active}></Tab>
