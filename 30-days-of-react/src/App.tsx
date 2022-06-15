@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import TestOne from './components/testOne'
 import TestTwo from './components/testTwo'
 import TestThree from './components/testThree'
@@ -7,23 +7,12 @@ import type { TabItem } from './components/tab'
 import Tab from './components/tab'
 import './App.css'
 import './style/index.less'
+interface ResponseData<T> {
+  code: number
+  data: T
+}
 function App() {
-  const tabList = [{
-    label: 'day 1',
-    value: 1,
-  }, {
-    label: 'day 2',
-    value: 2,
-  }, {
-    label: 'day 3',
-    value: 3,
-  }, {
-    label: 'day 4',
-    value: 4,
-  }, {
-    label: 'day 5',
-    value: 5,
-  }]
+  const [tabList, setTabList] = useState<TabItem[]>([])
   const skillList: string[] = ['HTML', 'CSS', 'JavaScript']
   function update({ id }: { id: number }): void {
     alert(id)
@@ -46,6 +35,17 @@ function App() {
         return <h1>没有对应的组件</h1>
     }
   }
+  const getData = async <T extends {}>(url: string): Promise<T> => {
+    const response = await fetch(url)
+    const data: T = await response.json()
+    return data
+  }
+  useEffect(() => {
+    (async function load() {
+      const data = await getData<ResponseData<TabItem[]>>('http://mock.apifox.cn/m1/641537-0-default/test')
+      setTabList(data.data)
+    })()
+  }, [])
   return (
     <div className="App">
       <Tab tabList={tabList} onClick={tabClick} active={active}></Tab>

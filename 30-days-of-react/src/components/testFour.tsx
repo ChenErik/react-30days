@@ -6,7 +6,7 @@ function getRandomNumber(min: number, max: number) {
 const TestFour = () => {
   const [x, setX] = useState(0)
   const [y, setY] = useState(0)
-  const fourMouseEnter = (_e: MouseEvent<HTMLElement>) => {
+  const fourMouseEnter = (_e: MouseEvent) => {
     const maxX = document.body.clientWidth - 10 - 200 // padding + selfWidth
     const maxY = document.body.clientHeight - 51 - 60 // padding + tabHeight + selfHeight
     setX(getRandomNumber(0, maxX))
