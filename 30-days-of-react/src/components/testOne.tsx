@@ -1,3 +1,5 @@
+import type { ChangeEvent } from 'react'
+import { useState } from 'react'
 import { hexaColor } from '../utils'
 export interface Props {
   name: string
@@ -5,6 +7,11 @@ export interface Props {
   onClick: () => void
 }
 const TestOne = (props: Props) => {
+  const [name, setName] = useState<string>('')
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { target: { value } } = e
+    setName(value)
+  }
   return (
     <div className="test-one" style={{ backgroundColor: hexaColor() }}>
       <h1>SUBSCRIBE</h1>
@@ -23,7 +30,7 @@ const TestOne = (props: Props) => {
               <li key={index} style={{ color: hexaColor(), listStyle: 'none' }}>{skill}</li>
           ))}
       </ul>
-      <input type="text" />
+      <input type="text" value={name} onChange={handleChange} />
       <input type="number" />
       <input type="range" />
 

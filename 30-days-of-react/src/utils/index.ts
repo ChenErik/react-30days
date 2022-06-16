@@ -7,3 +7,12 @@ export const hexaColor = (): string => {
   }
   return `#${color}`
 }
+
+export const getData = async <T extends {}>(url: string): Promise<T> => {
+  const response = await fetch(url)
+  const data: T = await response.json()
+  if (response.status === 200)
+    return data
+  else
+    return Promise.reject(data)
+}

@@ -125,3 +125,34 @@
     line-height: 60px;
     position: absolute;
 }
+.test-six{
+    width: 500px;
+    margin: 0px auto;
+    &-box{
+        margin-top: 15px;
+        box-shadow: 0 3px 3px 2px rgb(0 0 0 / 20%);
+    }
+    &-image{
+        width: 100%;
+        overflow: hidden;
+        img{
+            width: 100%;
+            height: 400px;
+            transition: transform 1s;
+        }
+        &:hover img{
+            transform: scale(1.6);
+            transition: all 1s;
+        }
+    }
+    &-text{
+        padding: 20px;
+    }
+    h1{
+        text-align: left;
+    }
+    p{
+        text-align: left;
+        margin-top: 5px;
+    }
+}

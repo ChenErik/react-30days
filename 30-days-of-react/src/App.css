@@ -18,7 +18,8 @@ html,body,#root{
   flex-grow: 1;
   overflow: auto;
   /* 不加这个height:0的时候，tab会抖动 */
-  height: 0;
+  /* height: 0; */
+  flex-basis: 0;
 }
 
 button {
