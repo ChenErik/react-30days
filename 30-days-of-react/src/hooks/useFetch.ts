@@ -12,6 +12,6 @@ export const useFetch = <T>(url: string, defaultValue?: T): T => {
       else
         setData(defaultValue ?? [] as any)
     })()
-  }, [])
+  }, [url])
   return data
 }

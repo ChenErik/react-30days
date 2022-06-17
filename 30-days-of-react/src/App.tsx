@@ -5,6 +5,7 @@ import TestThree from './components/testThree'
 import TestFour from './components/testFour'
 import TestFive from './components/TestFive'
 import TestSix from './components/TestSix'
+import TestSeven from './components/TestSeven'
 import type { TabItem } from './components/tab'
 import Tab from './components/tab'
 import './App.css'
@@ -63,6 +64,7 @@ function App() {
     componentsMap.set(4, <TestFour />)
     componentsMap.set(5, <TestFive />)
     componentsMap.set(6, <TestSix />)
+    componentsMap.set(7, <TestSeven />)
     return componentsMap.get(value) ?? <h1>没有对应的组件</h1>
   }
   const { data: tabList } = useFetch<ResponseData<TabItem[]>>('http://mock.apifox.cn/m1/641537-0-default/test', { code: 200, data })
