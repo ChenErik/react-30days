@@ -17,9 +17,6 @@ html,body,#root{
   padding-top: 5px;
   flex-grow: 1;
   overflow: auto;
-  /* 不加这个height:0的时候，tab会抖动 */
-  /* height: 0; */
-  flex-basis: 0;
 }
 
 button {
