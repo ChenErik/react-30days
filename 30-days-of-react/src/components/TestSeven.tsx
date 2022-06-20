@@ -1,6 +1,5 @@
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { hexaColor } from '../utils'
-
 interface ColorItem {
   color: string
   copied: boolean
